@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+    <h3>Sửa thông tin đơn hàng</h3>
+    <form th:action="@{/order/update/{id}(id=${order.orderId})}" th:object="${order}" method="post">
+        <div class="form-group">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" id="quantity" th:field="*{quantity}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" id="productName" th:field="*{product.name}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="productPrice" class="form-label">Product Price</label>
+            <input type="number" id="productPrice" th:field="*{product.price}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="productCategory" class="form-label">Product Category</label>
+            <input type="text" id="productCategory" th:field="*{product.category.name}" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Order</button>
+    </form>
+
+</body>
+</html>
